@@ -1,0 +1,21 @@
+{
+  "name": "wasm-vs-js",
+  "version": "0.0.1",
+  "description": "web assembly vs javascript performance",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "compile": "npm run clean && npm run compile:wasm && npm run compile:js",
+    "compile:wasm": "emcc -o public/fibonacci-wasm.js wasm/fibonacci.c -O3 -s WASM=1 --shell-file wasm/template.html",
+    "compile:js": "uglifyjs js/fibonacci.js --compress --mangle -o public/fibonacci-js.js & uglifyjs js/page.js --compress --mangle -o public/page.js",
+    "clean": "find ./public -type f ! -name 'index.html' -delete"
+  },
+  "author": "Van Nguyen <vnguyen94@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "uglify-js": "^2.8.22"
+  }
+}
