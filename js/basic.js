@@ -35,7 +35,22 @@ function startFibonacci(term, fnToTest, name) {
     resultsTime.innerText = results.time;
 }
 
+function fetchAndInstantiate(url, importObject) {
+    return fetch(url)
+        .then(function (response) {
+            return response.arrayBuffer();
+        })
+        .then(function (bytes) {
+            console.log(bytes);
+            return WebAssembly.instantiate(bytes, importObject);
+        })
+        .then(function (results) {
+            return results.instance;
+        });
+}
 
+fetchAndInstantiate('fibonacci-wasm.wasm', 'findNthFibonacciTerm')
+    .then(function (result) { console.log(result) });
 wasmButton.addEventListener('click', function () {
     var findNthFibonacciTermWASM = createWASMFibonacciFunction();
 

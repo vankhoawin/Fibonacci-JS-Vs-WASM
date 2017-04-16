@@ -1,0 +1,22 @@
+.box {
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.box h3 {
+    margin-top: 0;
+}
+
+.box table {
+    border-collapse: collapse;
+}
+
+.box table td, .box table th {
+    border: 1px solid black;
+}
+
+.input-container {
+    /*display: inline-block;*/
+    margin-bottom: 10px;
+}

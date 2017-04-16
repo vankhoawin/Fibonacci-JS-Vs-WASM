@@ -4,24 +4,37 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>WASM vs JS</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
-    <input type="button" id="js-button" value="JavaScript" />
-    <input type="button" id="wasm-button" value="WebAssembly" />
-    <input type="text" id="term-input" />
-    <h5>Term: <span id="results-term"></span></h5>
-    <h5>Results: <span id="results-number"></span></h5>
-    <h5>Name: <span id="results-name"></span></h5>
-    <h5>Execution time: <span id="results-time"></span></h5>>
+    <div class="box">
+        <h3>Fibonacci: JavaScript vs. WebAssembly</h3>
+        <div class="input-container">
+            <span># Terms to Calculate</span>
+            <input type="text" id="term-input" />
+        </div>
+        <input type="button" id="js-button" value="JavaScript" />
+        <input type="button" id="wasm-button" value="WebAssembly" />
+        <h5>Term: <span id="results-term"></span></h5>
+        <h5>Results: <span id="results-number"></span></h5>
+        <h5>Name: <span id="results-name"></span></h5>
+        <h5>Execution time: <span id="results-time"></span></h5>
+    </div>
 
-    <input type="text" id="time-table-input" />
-    <input type="button" id="time-table-button" value="Create Time Table" />
-    <table id="time-table"></table>
+    <div class="box">
+        <h3>Fibonacci Time Table</h3>
+        <div class="input-container">
+            <span># Powers of Ten</span>
+            <input type="text" id="time-table-input" />
+        </div>
+        <input type="button" id="time-table-button" value="Create Time Table" />
+        <table id="time-table"></table>
+    </div>
 
     <script async src="fibonacci-wasm.js"></script>
     <script async src="fibonacci-js.js"></script>
     <script src="basic.js"></script>
     <script src="time-table.js"></script>
-    <script src="web-worker.js"></script>
 </body>
 </html>

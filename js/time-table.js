@@ -30,8 +30,8 @@ function createTimeTable(results) {
     var tableHeader = (
         '<tr>' +
         '    <th width="200">Term</th>' +
-        '    <th width="200">WebAssembly</th>' +
         '    <th width="200">JavaScript</th>' +
+        '    <th width="200">WebAssembly</th>' +
         '</tr>'
     );
     var resultsHTML = results
@@ -39,8 +39,8 @@ function createTimeTable(results) {
             return (
                 '<tr>' +
                 '    <td width="200">' + result.term + '</td>' +
-                '    <td width="200">' + result.wasm + '</td>' +
                 '    <td width="200">' + result.js   + '</td>' +
+                '    <td width="200">' + result.wasm + '</td>' +
                 '</tr>'
             );
         })
