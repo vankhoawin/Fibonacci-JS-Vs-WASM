@@ -9,10 +9,6 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-app.get('/wasm', (req, res) => {
-  res.render('wasm.html');
-});
-
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
