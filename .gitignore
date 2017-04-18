@@ -1,5 +1,3 @@
-public/*.js
-public/*.wasm
 a.out.*
 node_modules
 emsdk/

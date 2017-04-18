@@ -1,0 +1,1 @@
+function findNthFibonacciTermJS(i){return i<2?i:findNthFibonacciTermJS(i-1)+findNthFibonacciTermJS(i-2)}
