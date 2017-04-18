@@ -1,5 +1,8 @@
 {
   "name": "wasm-vs-js",
+  "engines": {
+      "node": "6.10.2",
+  },
   "version": "0.1.0",
   "description": "web assembly vs javascript performance",
   "main": "server.js",
