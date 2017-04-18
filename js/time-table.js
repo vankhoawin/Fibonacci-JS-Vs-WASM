@@ -1,21 +1,21 @@
+var timeTableIncrement = document.getElementById('time-table-increment');
+var timeTableMultiplier = document.getElementById('time-table-multiplier');
+var timeTableRuns = document.getElementById('time-table-runs');
 var timeTableButton = document.getElementById('time-table-button');
-var timeTableInput = document.getElementById('time-table-input');
 var timeTable = document.getElementById('time-table');
 
 
-function createTermsArray(termsInput) {
+function createTermsArray(terms, multiplier) {
     var termsToTest = [];
 
-    for (var i = 1; i <= +termsInput; ++i) {
-        termsToTest.push(Math.pow(10, i))
+    for (var i = 1; i <= terms; ++i) {
+        termsToTest.push(i * multiplier);
     }
 
     return termsToTest;
 }
 
 function testTermsArray(terms) {
-    var findNthFibonacciTermWASM = createWASMFibonacciFunction();
-
     return terms.reduce(function (acc, term) {
         acc.push({
             term: term,
@@ -24,6 +24,36 @@ function testTermsArray(terms) {
         });
         return acc;
     }, []);
+}
+
+function runTimeTableTests(increments, multiplier, runs) {
+    var termsToTest = createTermsArray(increments, multiplier);
+    var runResults = [];
+    var testResults = [];
+
+    for (var i = 0; i < runs; ++i) {
+        var runResult = testTermsArray(termsToTest);
+
+        runResults.push(runResult);
+    }
+
+    for (var i = 0; i < increments; ++i) {
+        var wasmRunResult = 0;
+        var jsRunResult = 0;
+
+        for (var j = 0; j < runs; ++j) {
+            wasmRunResult += runResults[j][i].wasm;
+            jsRunResult += runResults[j][i].js;
+        }
+
+        testResults.push({
+            term: termsToTest[i],
+            wasm: wasmRunResult / runs,
+            js: jsRunResult / runs
+        });
+    }
+
+    return testResults;
 }
 
 function createTimeTable(results) {
@@ -52,8 +82,11 @@ function createTimeTable(results) {
 }
 
 timeTableButton.addEventListener('click', function () {
-    var termsToTest = createTermsArray(timeTableInput.value)
-    var results = testTermsArray(termsToTest);
+    var results = runTimeTableTests(
+        timeTableIncrement.value,
+        timeTableMultiplier.value,
+        timeTableRuns.value
+    );
 
     createTimeTable(results);
 });

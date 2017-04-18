@@ -7,13 +7,11 @@ var resultsName = document.getElementById('results-name');
 var resultsTime = document.getElementById('results-time');
 
 
-function createWASMFibonacciFunction() {
-    return Module.cwrap(
-        'findNthFibonacciTerm', // WebAssembly function name
-        'number',               // return type
-        ['number']              // argument types
-    );
-}
+var findNthFibonacciTermWASM = Module.cwrap(
+    'findNthFibonacciTerm', // WebAssembly function name
+    'number',               // return type
+    ['number']              // argument types
+);
 
 function testAndExecute(term, fnToTest) {
     var time = performance.now();
@@ -36,8 +34,6 @@ function startFibonacci(term, fnToTest, name) {
 }
 
 wasmButton.addEventListener('click', function () {
-    var findNthFibonacciTermWASM = createWASMFibonacciFunction();
-
     startFibonacci(
         termInput.value,
         findNthFibonacciTermWASM,

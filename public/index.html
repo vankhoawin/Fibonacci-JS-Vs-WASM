@@ -12,7 +12,7 @@
         <h3>Fibonacci: JavaScript vs. WebAssembly</h3>
         <div class="input-container">
             <span># Terms to Calculate</span>
-            <input type="text" id="term-input" />
+            <input type="text" id="term-input" value="10" />
         </div>
         <input type="button" id="js-button" value="JavaScript" />
         <input type="button" id="wasm-button" value="WebAssembly" />
@@ -25,15 +25,23 @@
     <div class="box">
         <h3>Fibonacci Time Table</h3>
         <div class="input-container">
-            <span># Powers of Ten</span>
-            <input type="text" id="time-table-input" />
+            <span># of Increments</span>
+            <input type="text" id="time-table-increment" value="5" />
+        </div>
+        <div class="input-container">
+            <span>Multiplier</span>
+            <input type="text" id="time-table-multiplier" value="5" />
+        </div>
+        <div class="input-container">
+            <span># of Runs</span>
+            <input type="text" id="time-table-runs" value="1" />
         </div>
         <input type="button" id="time-table-button" value="Create Time Table" />
         <table id="time-table"></table>
     </div>
 
-    <script async src="fibonacci-wasm.js"></script>
-    <script async src="fibonacci-js.js"></script>
+    <script src="fibonacci-wasm.js"></script>
+    <script src="fibonacci-js.js"></script>
     <script src="basic.js"></script>
     <script src="time-table.js"></script>
 </body>
