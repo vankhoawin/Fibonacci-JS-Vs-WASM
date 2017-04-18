@@ -1,18 +1,7 @@
 function findNthFibonacciTermJS(term) {
-    var first = 0;
-    var second = 1;
-    var next;
-    var i;
-
-    if (term == 0) {
-        return first;
+    if (term < 2) {
+        return term;
     }
 
-    for (i = 2; i <= term; ++i) {
-        next = first + second;
-        first = second;
-        second = next;
-    }
-
-    return second;
+    return findNthFibonacciTermJS(term - 1) + findNthFibonacciTermJS(term - 2);
 }
