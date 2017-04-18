@@ -1,5 +1,7 @@
 ## Fibonacci Performance Benchmark: JavaScript Vs. WebAssembly
 
+### [Demo](https://wasm-vs-js.herokuapp.com)
+
 With the introduction of WebAssembly to the four major browsers (Chrome, FireFox, Safari, Edge), browsers will soon be able to run apps capable of reaching near-native speeds, and magnitudes faster than current JavaScript code. This program compares the performance of finding Fibonacci terms in JavaScript and C++ compiled WebAssembly running in the browser (Macbook 2015, El Capitan).
 
 ## Installation
